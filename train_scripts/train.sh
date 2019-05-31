@@ -1,0 +1,23 @@
+export NGPU=8; CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=$NGPU ../train.py  \
+    --exp_name tlm_deen_uniform_8gpu_256batch \
+    --dump_path /dump/path/ \
+    --data_path /data/path/ \
+    --lgs 'de-en' \
+    --clm_steps '' \
+    --mlm_steps 'de-en'\
+    --reload_model /path/to/XLM/models/mlm_ende_1024.pth \
+    --emb_dim 1024 \
+    --n_layers 6 \
+    --n_heads 8 \
+    --dropout 0.1 \
+    --attention_dropout 0.1 \
+    --gelu_activation true \
+    --batch_size 32 \
+    --bptt 256 \
+    --optimizer adam_inverse_sqrt,beta1=0.9,beta2=0.98,lr=0.0001 \
+    --epoch_size 100000 \
+    --word_pred_uniform \
+    --eval_bleu true \
+    --mt_steps "de-en,en-de" \
+    --validation_metrics valid_de-en_mt_bleu,valid_en-de_mt_bleu \
+    --stopping_criterion valid_de-en_mt_bleu,800
