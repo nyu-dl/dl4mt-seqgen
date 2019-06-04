@@ -5,7 +5,7 @@ PyTorch implementation of the models described in the paper [A Generalized Frame
 The codebase is written on top of excellent implementation of cross-lingual masked language models from Facebook AI Research [https://github.com/facebookresearch/XLM](XLM)
 Checkout that codebase for dependencies!
 
-Download WMT'14 EN-DE data [here]() and download pretrained models [here]().
+Download WMT'14 EN-DE [*valid/test* data](https://drive.google.com/open?id=1_ehGG8T5iztqEDOFXwFCxYghMvSVeRc8) and download [pretrained models](https://drive.google.com/open?id=1m1R7JC7tSnx3gog-UmeWamEERVoyWfMv).
 
 To train the masked translation model for the purposes of generation run the following script in `train_scripts/train.sh`. Make sure to download the pretrained cross-lingual de-en masked language model from XLM repo.
 
